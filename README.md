@@ -1,5 +1,5 @@
 [![Netlify Status](https://api.netlify.com/api/v1/badges/d2bd7381-c7c0-40af-ac17-f3b58104a8cd/deploy-status)](https://app.netlify.com/sites/hustlemania/deploys)
-# 🏋️‍♂️ Gym & Fitness Studio(Mock Website)
+# 🏋️‍♂️ MuscleMania Fitness Studio
 
 Welcome to **MuscleMania**, your ultimate destination for transforming your body and mind! Our website showcases our state-of-the-art facilities, expert trainers, and a variety of services designed to help you achieve your fitness goals.
 
