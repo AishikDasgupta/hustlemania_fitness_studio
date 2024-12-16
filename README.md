@@ -24,7 +24,6 @@ Welcome to **MuscleMania**, your ultimate destination for transforming your body
 
 | Section             | Screenshot                                               |
 |---------------------|----------------------------------------------------------|
-| Hero Section        | ![Hero Section](https://github.com/user-attachments/assets/c15d0e54-8f1a-4a7a-a7ea-b1c4c3197190) |
 | About Us Section    | ![About Section](https://github.com/user-attachments/assets/8d03c57e-ef13-4150-bc10-46e5ad9772a0) |
 | Services Section    | ![Services Section](https://github.com/user-attachments/assets/831cd5df-8a4a-47d8-9a8d-bac425a645f1) |
 | Pricing Section     | ![Pricing Section](https://github.com/user-attachments/assets/baf5d66d-71f4-49b4-9c02-2dd7aa207790) |
