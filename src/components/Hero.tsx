@@ -9,6 +9,13 @@ const Hero = () => {
     'https://images.unsplash.com/photo-1540497077202-7c8a3999166f?auto=format&fit=crop&q=80'
   ];
 
+  const scrollToPricing = () => {
+    const pricingSection = document.getElementById('pricing');
+    if (pricingSection) {
+      pricingSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrentImage((prev) => (prev + 1) % images.length);
@@ -40,7 +47,9 @@ const Hero = () => {
         <p className="text-xl md:text-2xl mb-8 text-center text-white max-w-2xl px-4">
           Join HustleMania and start your fitness journey today
         </p>
-        <button className="bg-red-500 hover:bg-red-600 text-white rounded-full px-8 py-4 text-lg font-semibold transition-colors">
+        <button 
+        onClick={scrollToPricing} 
+        className="bg-red-500 hover:bg-red-600 text-white rounded-full px-8 py-4 text-lg font-semibold transition-colors">
           Get Membership
         </button>
       </div>
