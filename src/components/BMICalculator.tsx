@@ -22,7 +22,7 @@ const BMICalculator = () => {
   };
 
   return (
-    <section id="bmi" className="py-20 bg-white">
+    <section id="bmi" className="py-20 bg-gray-100 dark:bg-gray-800 transition-colors">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <h2 className="text-3xl md:text-4xl font-bold text-center mb-16">BMI Calculator</h2>
         <div className="bg-gray-50 rounded-lg p-8 shadow-lg">
