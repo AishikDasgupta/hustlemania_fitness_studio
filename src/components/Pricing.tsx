@@ -36,15 +36,15 @@ const Pricing = () => {
   ];
 
   return (
-    <section id="pricing" className="py-20 bg-gray-100 dark:bg-gray-800 transition-colors">
+    <section id="pricing" className="py-20 bg-gray-100 dark:bg-stone-900 transition-colors">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="text-3xl md:text-4xl font-bold text-center mb-16">Membership Plans</h2>
+        <h2 className="text-3xl text-white md:text-4xl font-bold text-center mb-16">Membership Plans</h2>
         <div className="grid md:grid-cols-3 gap-8">
           {plans.map((plan, index) => (
             <div
               key={index}
               className={`relative rounded-lg ${
-                plan.popular ? 'bg-red-50 border-2 border-red-500' : 'bg-gray-50'
+                plan.popular ? 'bg-stone-800 border-2 border-red-500' : 'bg-stone-700'
               } p-8`}
             >
               {plan.popular && (
@@ -52,16 +52,16 @@ const Pricing = () => {
                   Popular
                 </span>
               )}
-              <h3 className="text-2xl font-bold mb-4">{plan.name}</h3>
+              <h3 className="text-2xl text-white font-bold mb-4">{plan.name}</h3>
               <div className="mb-6">
-                <span className="text-4xl font-bold">₹{plan.price}</span>
-                <span className="text-gray-600">/month</span>
+                <span className="text-4xl text-white font-bold">₹{plan.price}</span>
+                <span className="text-white">/month</span>
               </div>
               <ul className="space-y-4 mb-8">
                 {plan.features.map((feature, idx) => (
                   <li key={idx} className="flex items-center">
                     <Check className="w-5 h-5 text-green-500 mr-2" />
-                    <span>{feature}</span>
+                    <span className='text-white'>{feature}</span>
                   </li>
                 ))}
               </ul>
@@ -69,7 +69,7 @@ const Pricing = () => {
                 className={`w-full py-3 rounded-md transition-colors ${
                   plan.popular
                     ? 'bg-red-500 text-white hover:bg-red-600'
-                    : 'bg-gray-800 text-white hover:bg-gray-900'
+                    : 'bg-stone-800 text-white hover:bg-stone-900'
                 }`}
               >
                 Get Started

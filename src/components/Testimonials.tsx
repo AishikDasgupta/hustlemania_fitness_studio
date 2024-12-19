@@ -41,11 +41,11 @@ const Testimonials = () => {
   return (
     <section
       id="testimonials"
-      className="py-20 bg-gray-100 dark:bg-gray-800 transition-colors"
+      className="py-20 bg-gray-100 dark:bg-stone-700 transition-colors"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
+          <h2 className="text-3xl text-white md:text-4xl font-bold mb-4">
             Success Stories
           </h2>
           <p className="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
@@ -90,7 +90,7 @@ const TestimonialCard = ({
     >
       <div
         className={`
-        bg-white dark:bg-gray-700 rounded-xl shadow-lg overflow-hidden
+        bg-white dark:bg-stone-800 rounded-xl shadow-lg overflow-hidden
         transform transition-all duration-300 ease-in-out
         ${isHovered ? "scale-105 shadow-2xl" : ""}
       `}
