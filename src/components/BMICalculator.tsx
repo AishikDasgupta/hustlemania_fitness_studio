@@ -22,10 +22,10 @@ const BMICalculator = () => {
   };
 
   return (
-    <section id="bmi" className="py-20 bg-gray-100 dark:bg-stone-700 transition-colors">
+    <section id="bmi" className="py-20 bg-gray-100 dark:bg-stone-800 transition-colors">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <h2 className="text-3xl text-white md:text-4xl font-bold text-center mb-16">BMI Calculator</h2>
-        <div className="bg-zinc-800 rounded-lg p-8 shadow-lg">
+        <div className="bg-stone-900 rounded-lg p-8 shadow-lg">
           <div className="grid md:grid-cols-2 gap-6">
             <div>
               <label className="block text-sm font-medium text-gray-400 mb-2">
@@ -61,7 +61,7 @@ const BMICalculator = () => {
           {bmi && (
             <div className="mt-6 text-center">
               <p className="text-xl text-white">Your BMI is: <span className="font-bold">{bmi}</span></p>
-              <p className="mt-2">
+              <p className="mt-2 text-white">
                 Category:{' '}
                 <span className={`font-bold ${getBMICategory(bmi).color}`}>
                   {getBMICategory(bmi).category}
