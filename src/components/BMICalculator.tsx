@@ -1,9 +1,11 @@
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 const BMICalculator = () => {
   const [height, setHeight] = useState('');
   const [weight, setWeight] = useState('');
   const [bmi, setBmi] = useState<number | null>(null);
+  const [isVisible, setIsVisible] = useState(false);
+  const ref = useRef<HTMLDivElement>(null);
 
   const calculateBMI = () => {
     if (height && weight) {
@@ -21,8 +23,33 @@ const BMICalculator = () => {
     return { category: 'Obese', color: 'text-red-500' };
   };
 
+  const handleScroll = () => {
+    if (ref.current) {
+      const rect = ref.current.getBoundingClientRect();
+      if (rect.top < window.innerHeight && rect.bottom > 0) {
+        setIsVisible(true);
+      }
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
   return (
-    <section id="bmi" className="py-20 bg-gray-100 dark:bg-stone-800 transition-colors">
+    <section
+      ref={ref}
+      id="bmi"
+      className="py-20 bg-gray-100 dark:bg-stone-800 transition-colors"
+      style={{
+        opacity: isVisible ? 1 : 0,
+        transform: isVisible ? 'translateY(0)' : 'translateY(50px)',
+        transition: 'opacity 0.5s, transform 0.5s',
+      }}
+    >
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <h2 className="text-3xl text-white md:text-4xl font-bold text-center mb-16">BMI Calculator</h2>
         <div className="bg-stone-900 rounded-lg p-8 shadow-lg">

@@ -1,3 +1,4 @@
+import { useEffect, useRef, useState } from 'react';
 import { Dumbbell, Users, Heart, Timer } from 'lucide-react';
 
 const Services = () => {
@@ -24,8 +25,36 @@ const Services = () => {
     }
   ];
 
+  const [isVisible, setIsVisible] = useState(false);
+  const ref = useRef<HTMLDivElement>(null);
+
+  const handleScroll = () => {
+    if (ref.current) {
+      const rect = ref.current.getBoundingClientRect();
+      if (rect.top < window.innerHeight && rect.bottom > 0) {
+        setIsVisible(true);
+      }
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
   return (
-    <section id="services" className="py-20 bg-gray-100 dark:bg-stone-900 transition-colors">
+    <section
+      ref={ref}
+      id="services"
+      className="py-20 bg-gray-100 dark:bg-stone-900 transition-colors"
+      style={{
+        opacity: isVisible ? 1 : 0,
+        transform: isVisible ? 'translateY(0)' : 'translateY(50px)',
+        transition: 'opacity 0.5s, transform 0.5s',
+      }}
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <h2 className="text-3xl text-white md:text-4xl font-bold text-center mb-16">Our Services</h2>
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">

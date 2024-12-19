@@ -1,5 +1,6 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Quote } from "lucide-react";
+import { motion } from 'framer-motion';
 
 const Testimonials = () => {
   const testimonials = [
@@ -38,10 +39,34 @@ const Testimonials = () => {
     },
   ];
 
+  const [isVisible, setIsVisible] = useState(false);
+  const ref = useRef<HTMLDivElement>(null);
+
+  const handleScroll = () => {
+    if (ref.current) {
+      const rect = ref.current.getBoundingClientRect();
+      if (rect.top < window.innerHeight && rect.bottom > 0) {
+        setIsVisible(true);
+      }
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
   return (
-    <section
+    <motion.section
+      ref={ref}
       id="testimonials"
       className="py-20 bg-gray-100 dark:bg-stone-800 transition-colors"
+      initial={{ opacity: 0, y: 50 }}
+      animate={{ opacity: isVisible ? 1 : 0, y: isVisible ? 0 : 50 }}
+      exit={{ opacity: 0, y: 50 }}
+      transition={{ duration: 1.2 }}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
@@ -60,7 +85,7 @@ const Testimonials = () => {
           ))}
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 };
 
