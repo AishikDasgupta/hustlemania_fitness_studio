@@ -42,6 +42,7 @@ const Navbar = () => {
             <a href="#about" className="block hover:text-red-500 px-3 py-2 transition-colors">About</a>
             <a href="#bmi" className="block hover:text-red-500 px-3 py-2 transition-colors">BMI Calculator</a>
             <a href="#services" className="block hover:text-red-500 px-3 py-2 transition-colors">Services</a>
+            <a href="#testimonials" className="block hover:text-red-500 px-3 py-2 transition-colors">Testimonials</a>
             <a href="#pricing" className="block hover:text-red-500 px-3 py-2 transition-colors">Pricing</a>
           </div>
         </div>
