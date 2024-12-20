@@ -1,4 +1,3 @@
-import { useEffect, useRef, useState } from "react";
 import { Check } from "lucide-react";
 import { motion } from "framer-motion";
 import { fadeIn } from "./variants";
@@ -6,8 +5,8 @@ import { fadeIn } from "./variants";
 const Pricing = () => {
   const plans = [
     {
-      name: "1 Month",
-      price: "1500",
+      name: "3 Months",
+      price: "1166",
       features: [
         "Access to gym equipment",
         "Locker room access",
@@ -16,8 +15,8 @@ const Pricing = () => {
       ],
     },
     {
-      name: "3 Months",
-      price: "1166",
+      name: "6 Months",
+      price: "1250",
       features: [
         "All Basic features",
         "Group classes included",
@@ -27,7 +26,7 @@ const Pricing = () => {
       popular: true,
     },
     {
-      name: "6 Months",
+      name: "12 Months",
       price: "1000",
       features: [
         "All Pro features",
@@ -38,35 +37,10 @@ const Pricing = () => {
     },
   ];
 
-  const [isVisible, setIsVisible] = useState(false);
-  const ref = useRef<HTMLDivElement>(null);
-
-  const handleScroll = () => {
-    if (ref.current) {
-      const rect = ref.current.getBoundingClientRect();
-      if (rect.top < window.innerHeight && rect.bottom > 0) {
-        setIsVisible(true);
-      }
-    }
-  };
-
-  useEffect(() => {
-    window.addEventListener("scroll", handleScroll);
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
-
   return (
     <section
-      ref={ref}
       id="pricing"
       className="py-20 bg-gray-100 dark:bg-black transition-colors"
-      style={{
-        opacity: isVisible ? 1 : 0,
-        transform: isVisible ? "translateY(0)" : "translateY(50px)",
-        transition: "opacity 0.5s, transform 0.5s",
-      }}
     >
       <motion.div
         variants={fadeIn("up", 0.1)}

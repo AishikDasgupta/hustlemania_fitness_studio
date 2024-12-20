@@ -1,4 +1,3 @@
-import { useEffect, useRef, useState } from "react";
 import { Dumbbell, Users, Heart, Timer } from "lucide-react";
 import { motion } from "framer-motion";
 import { fadeIn } from "./variants";
@@ -30,35 +29,10 @@ const Services = () => {
     },
   ];
 
-  const [isVisible, setIsVisible] = useState(false);
-  const ref = useRef<HTMLDivElement>(null);
-
-  const handleScroll = () => {
-    if (ref.current) {
-      const rect = ref.current.getBoundingClientRect();
-      if (rect.top < window.innerHeight && rect.bottom > 0) {
-        setIsVisible(true);
-      }
-    }
-  };
-
-  useEffect(() => {
-    window.addEventListener("scroll", handleScroll);
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
-
   return (
     <section
-      ref={ref}
       id="services"
       className="py-20 bg-gray-100 dark:bg-black transition-colors"
-      style={{
-        opacity: isVisible ? 1 : 0,
-        transform: isVisible ? "translateY(0)" : "translateY(50px)",
-        transition: "opacity 0.5s, transform 0.5s",
-      }}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.h2
