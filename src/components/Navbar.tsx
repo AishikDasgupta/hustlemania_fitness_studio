@@ -23,7 +23,7 @@ const Navbar = () => {
   }, [isOpen]);
 
   return (
-    <nav className="fixed w-full bg-black/80 text-white z-50">
+    <nav className="fixed w-full bg-black/70 text-white z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           <div className="flex items-center">
@@ -33,7 +33,7 @@ const Navbar = () => {
 
           {/* Desktop Menu */}
           <div className="hidden md:block">
-            <div className="ml-10 flex items-baseline space-x-4">
+            <div className="ml-10 flex items-baseline font-semibold space-x-4">
               <a
                 onClick={() => scrollToSection("home")}
                 className="hover:text-red-500 px-3 py-2 transition-colors cursor-pointer"
