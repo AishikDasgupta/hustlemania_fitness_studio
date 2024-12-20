@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { Quote } from "lucide-react";
-import { motion } from 'framer-motion';
+import { motion } from "framer-motion";
+import { fadeIn } from "./variants";
 
 const Testimonials = () => {
   const testimonials = [
@@ -52,9 +53,9 @@ const Testimonials = () => {
   };
 
   useEffect(() => {
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
     return () => {
-      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener("scroll", handleScroll);
     };
   }, []);
 
@@ -62,7 +63,7 @@ const Testimonials = () => {
     <motion.section
       ref={ref}
       id="testimonials"
-      className="py-20 bg-gray-100 dark:bg-stone-800 transition-colors"
+      className="py-20 bg-gray-100 dark:bg-stone-900 transition-colors"
       initial={{ opacity: 0, y: 50 }}
       animate={{ opacity: isVisible ? 1 : 0, y: isVisible ? 0 : 50 }}
       exit={{ opacity: 0, y: 50 }}
@@ -70,20 +71,38 @@ const Testimonials = () => {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-3xl text-white md:text-4xl font-bold mb-4">
+          <motion.h2
+            variants={fadeIn("up", 0.1)}
+            initial="hidden"
+            whileInView={"show"}
+            viewport={{ once: false, amount: 0.1 }}
+            className="text-3xl text-white md:text-4xl font-bold mb-4"
+          >
             Success Stories
-          </h2>
-          <p className="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+          </motion.h2>
+          <motion.p
+            variants={fadeIn("up", 0.1)}
+            initial="hidden"
+            whileInView={"show"}
+            viewport={{ once: false, amount: 0.1 }}
+            className="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto"
+          >
             Real results from real people. See how HustleMania has helped
             transform lives and achieve fitness goals.
-          </p>
+          </motion.p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <motion.div
+          variants={fadeIn("up", 0.1)}
+          initial="hidden"
+          whileInView={"show"}
+          viewport={{ once: false, amount: 0.1 }}
+          className="grid md:grid-cols-2 lg:grid-cols-3 gap-8"
+        >
           {testimonials.map((testimonial, index) => (
             <TestimonialCard key={index} {...testimonial} />
           ))}
-        </div>
+        </motion.div>
       </div>
     </motion.section>
   );
@@ -115,7 +134,7 @@ const TestimonialCard = ({
     >
       <div
         className={`
-        bg-white dark:bg-stone-900 rounded-xl shadow-lg overflow-hidden
+        bg-white dark:bg-black rounded-xl shadow-lg overflow-hidden
         transform transition-all duration-300 ease-in-out
         ${isHovered ? "scale-105 shadow-2xl" : ""}
       `}
@@ -162,7 +181,7 @@ const TestimonialCard = ({
             "{quote}"
           </p>
           <div className="border-t border-gray-200 dark:border-gray-600 pt-4">
-            <h3 className="font-semibold text-lg">{name}</h3>
+            <h3 className="font-semibold text-lg text-white">{name}</h3>
             <p className="text-gray-500 dark:text-gray-400 text-sm">{role}</p>
             <p className="text-red-500 text-sm mt-1">{duration}</p>
           </div>
