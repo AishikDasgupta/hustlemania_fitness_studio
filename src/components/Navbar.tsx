@@ -3,7 +3,7 @@ import { Menu, X, Dumbbell } from "lucide-react";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [menuHeight, setMenuHeight] = useState('0px');
+  const [menuHeight, setMenuHeight] = useState("0px");
   const menuRef = useRef<HTMLDivElement>(null);
 
   const scrollToSection = (id: string) => {
@@ -18,7 +18,7 @@ const Navbar = () => {
     if (isOpen) {
       setMenuHeight(`${menuRef.current?.scrollHeight}px`);
     } else {
-      setMenuHeight('0px');
+      setMenuHeight("0px");
     }
   }, [isOpen]);
 
