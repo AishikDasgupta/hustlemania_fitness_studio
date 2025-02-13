@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { Quote } from "lucide-react";
 import { motion } from "framer-motion";
 import { fadeIn } from "./variants";
@@ -101,66 +100,52 @@ const TestimonialCard = ({
   quote: string;
   duration: string;
 }) => {
-  const [isHovered, setIsHovered] = useState(false);
-
   return (
-    <div
-      className="relative group"
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
-    >
-      <div
-        className={`
-        bg-white dark:bg-black rounded-xl shadow-lg overflow-hidden
-        transform transition-all duration-300 ease-in-out
-        ${isHovered ? "scale-105 shadow-2xl" : ""}
-      `}
-      >
-        <div className="relative h-64 overflow-hidden">
+    <div className="bg-white dark:bg-stone-950 rounded-3xl shadow-lg overflow-hidden border border-gray-100 dark:border-stone-800 transition-all duration-300 hover:shadow-2xl">
+      <div className="relative">
+        {/* Image Container */}
+        <div className="flex flex-col sm:flex-row">
           {/* Before Image */}
-          <div
-            className={`
-              absolute inset-0 transition-transform duration-700 ease-in-out
-              ${isHovered ? "translate-x-full" : "translate-x-0"}
-            `}
-          >
+          <div className="relative w-full sm:w-1/2">
             <img
               src={beforeImage}
               alt="Before transformation"
-              className="w-full h-full object-cover"
+              className="w-full h-48 sm:h-72 object-cover"
             />
-            <div className="absolute top-2 left-2 bg-black/70 text-white text-sm px-2 py-1 rounded">
+            <div className="absolute top-4 left-4 bg-black/80 text-white text-sm px-4 py-1.5 rounded-full font-medium">
               Before
             </div>
           </div>
 
           {/* After Image */}
-          <div
-            className={`
-              absolute inset-0 transition-transform duration-700 ease-in-out
-              ${isHovered ? "translate-x-0" : "-translate-x-full"}
-            `}
-          >
+          <div className="relative w-full sm:w-1/2">
             <img
               src={afterImage}
               alt="After transformation"
-              className="w-full h-full object-cover"
+              className="w-full h-48 sm:h-72 object-cover"
             />
-            <div className="absolute top-2 right-2 bg-red-500 text-white text-sm px-2 py-1 rounded">
+            <div className="absolute top-4 right-4 bg-red-500 text-white text-sm px-4 py-1.5 rounded-full font-medium">
               After
             </div>
           </div>
         </div>
 
-        <div className="p-6">
-          <Quote className="w-8 h-8 text-red-500 mb-4" />
-          <p className="text-gray-600 dark:text-gray-300 mb-4 italic">
+        {/* Content */}
+        <div className="p-8">
+          <Quote className="w-10 h-10 text-red-500 mb-4 opacity-80" />
+          <p className="text-gray-700 dark:text-gray-200 mb-6 italic text-lg leading-relaxed">
             "{quote}"
           </p>
-          <div className="border-t border-gray-200 dark:border-gray-600 pt-4">
-            <h3 className="font-semibold text-lg text-white">{name}</h3>
-            <p className="text-gray-500 dark:text-gray-400 text-sm">{role}</p>
-            <p className="text-red-500 text-sm mt-1">{duration}</p>
+          <div className="border-t border-gray-200 dark:border-stone-800 pt-4">
+            <h3 className="font-bold text-xl text-gray-900 dark:text-white">
+              {name}
+            </h3>
+            <p className="text-gray-600 dark:text-gray-400 font-medium">
+              {role}
+            </p>
+            <p className="text-red-500 dark:text-red-400 font-medium mt-1">
+              {duration}
+            </p>
           </div>
         </div>
       </div>
